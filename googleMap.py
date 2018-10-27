@@ -31,8 +31,10 @@ def getData(lat, lng, key):
         return query_result
 
 def functionshutdown(channel):
-    if GPIO.input(channel):
-        flag = 1
+#   print("in shutdown")
+#   if GPIO.input(channel):
+#    print("in function shutdown if")
+    flag = 1
 
 
 if __name__ == '__main__':
