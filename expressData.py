@@ -1,6 +1,6 @@
 import math
 import numpy as np
-def checkPos(_degree, latNlng, des_lat, dest_lng, viewPointDegree):
+def checkPos(_degree, latNlng, des_lat, dest_lng, viewPointDegree = 90):
 	degree = _degree * math.pi / 180
 	unit_vector = np.array([math.cos(degree), math.sin(degree)])
 	des_vector = np.array([des_lat - latNlng[0], dest_lng - latNlng[1]])
@@ -26,22 +26,4 @@ def findByDirection(degree, latNlng, datas):
 		elif checkPos((degree + 180) % 360, latNlng, data['lat'], data['lng'], 90):
 			correctBack.append(data)
 	return (correctFront, correctLeft, correctBack, correctRight)
-
-def expressData(direction, degree, datas, latNlng, correctData, viewPointDegree):
-	correctDegree = 0
-	if direction == 'front':
-		correctDegree = degree
-	elif direction == 'left':
-		correctDegree = (degree + 270) % 360
-	elif direction == 'right':
-		correctDegree = (degree + 90) % 360
-	elif direction == 'back':
-		correctDegree = (degree + 180) % 360
-	for data in datas:
-		if checkPos(correctDegree, latNlng, data['lat'], data['lng'], viewPointDegree):
-			correctData.append(data)
-	if len(correctData):
-		return True
-	else:
-		return False
 
