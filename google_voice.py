@@ -17,25 +17,11 @@ def is_chinese(string):
         return 'zh_CN'
     else:
         return 'en'
-
-
-def chinese_to_google(string):
-    i = vlc.Instance('--verbose 2'.split())
-    p = i.media_player_new()
-    url = 'http://translate.google.com.tw/translate_tts?ie=UTF-8&q=' + to_utf8(string) +'&tl=' +is_chinese(string)+ '&total=1&idx=0'+'&textlen='+str(get_len(string)) +'&tk=' + str(get_token(string)) +'&client=webapp&prev=input'
-    '''
-    url = 'https://translate.google.com.tw/translate_tts?ie=UTF-8&q=%E8%B6%95%E7%BE%9A%E7%BE%8A&tl=zh-CN&total=1&idx=0&textlen=3&tk=353679.254520&client=t&prev=input&ttsspeed=0.24'
-    '''
-    #print('the url is: ',url)
-    p.set_mrl(url)
-    p.play()
-    sleep(5)
-    return 
     
 
 def string_to_google(string):
     
-    i = vlc.Instance('--verbose 2'.split())
+    i = vlc.Instance()
     p = i.media_player_new()
     url = 'http://translate.google.com.tw/translate_tts?ie=UTF-8&q=' + string.replace(' ','%20')+'&tl='+is_chinese(string)+ '&total=1&idx=0'+'&textlen='+str(get_len(string)) +'&tk=' + str(get_token(string)) +'&client=webapp&prev=input'
     '''
