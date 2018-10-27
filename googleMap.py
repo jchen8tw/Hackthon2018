@@ -4,6 +4,7 @@ import time
 from expressData import *
 from controller import *
 import RPi.GPIO as GPIO
+from gps33 import *
 
 GPIO.setmode(GPIO.BCM)
 channel_1 = 27
@@ -11,6 +12,9 @@ channel_2 = 22
 GPIO.setup(channel_1, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(channel_2, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 flag = 0
+stage = 0 # change when longpress
+stage1_index = 0
+stage2_index = 0
 
 if len(sys.argv) == 2:
     googleMapKey = sys.argv[1]
@@ -31,38 +35,38 @@ def getData(lat, lng, key):
         return query_result
 
 def functionshutdown(channel):
-    print("in shutdown")
-    global flag
-    flag = 1
+    if GPIO.input(channel):
+        print("in shutdown")
+        global flag
+        flag = 1
+        global stage
+        global stage1_index
+        global stage2_index
+        stage, stage1_index, stage2_index = doublePress(stage, stage1_index, stage2_index)
 
 
 
 if __name__ == '__main__':
-    stage = 0 # change when longpress
-    stage1_index = 0
-    stage2_index = 0
     kinds = ['Restaurant', 'Building', 'Store', 'Bus stop'] # 0: stop, 1: inKind, 2: option(front, left, back, right)
     
     GPIO.add_event_detect(channel_2, GPIO.FALLING, callback = functionshutdown)
     input_key = -1
     while True:
-        if flag == 1 and stage != 0:
-            print('there\'s a flag')
+#        if flag == 1 and stage != 0:
+#            flag = 0
+#            continue
+        if flag == 1 and stage == 0:
             flag = 0
-            stage, stage1_index, stage2_index = doublePress(stage, stage1_index, stage2_index)
-            continue
-        elif flag == 0 or (flag == 1 and stage == 0):
-            flag = 0
-            print('start wait for edge')
-            GPIO.wait_for_edge(channel_1, GPIO.FALLING)
-            init_time = time.time()
-            GPIO.wait_for_edge(channel_1, GPIO.RISING)
-            current_time = time.time()
-            if current_time - init_time >= 2:
-                input_key = 0
-                print('process start')
-            else:
-                input_key = 1
+        print('start wait for edge')
+        GPIO.wait_for_edge(channel_1, GPIO.FALLING)
+        init_time = time.time()
+        GPIO.wait_for_edge(channel_1, GPIO.RISING)
+        current_time = time.time()
+        if current_time - init_time >= 2:
+            input_key = 0
+            print('process start')
+        else:
+            input_key = 1
         #input_key = int(input('input press: '))
         if input_key == 0 and flag == 0:
             if stage == 0:
