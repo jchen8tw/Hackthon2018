@@ -4,6 +4,7 @@ import pandas as pd
 import time
 from expressData import *
 from controller import *
+import RPi.GPIO as GPIO
 
 if len(sys.argv) == 2:
 	googleMapKey = sys.argv[1]
