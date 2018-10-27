@@ -31,10 +31,10 @@ def getData(lat, lng, key):
         return query_result
 
 def functionshutdown(channel):
-#   print("in shutdown")
-#   if GPIO.input(channel):
-#    print("in function shutdown if")
+    print("in shutdown")
+    global flag
     flag = 1
+
 
 
 if __name__ == '__main__':
@@ -46,23 +46,25 @@ if __name__ == '__main__':
     GPIO.add_event_detect(channel_2, GPIO.FALLING, callback = functionshutdown)
     input_key = -1
     while True:
-        if flag == 1:
-        	print('there\'s a flag')
+        if flag == 1 and stage != 0:
+            print('there\'s a flag')
             flag = 0
             stage, stage1_index, stage2_index = doublePress(stage, stage1_index, stage2_index)
             continue
-        print('start wait for edge')
-        GPIO.wait_for_edge(channel_1, GPIO.FALLING)
-        init_time = time.time()
-        GPIO.wait_for_edge(channel_1, GPIO.RISING)
-        current_time = time.time()
-        if current_time - init_time >= 2:
-            input_key = 0
-            print('process start')
-        else:
-            input_key = 1
+        elif flag == 0 or (flag == 1 and stage == 0):
+            flag = 0
+            print('start wait for edge')
+            GPIO.wait_for_edge(channel_1, GPIO.FALLING)
+            init_time = time.time()
+            GPIO.wait_for_edge(channel_1, GPIO.RISING)
+            current_time = time.time()
+            if current_time - init_time >= 2:
+                input_key = 0
+                print('process start')
+            else:
+                input_key = 1
         #input_key = int(input('input press: '))
-        if input_key == 0:
+        if input_key == 0 and flag == 0:
             if stage == 0:
                 stage, stage1_index = longPress(stage, stage1_index)
                 latNlng = [24.7871229, 120.9967369]
@@ -101,13 +103,11 @@ if __name__ == '__main__':
                 speak('finish')
                 speak(names[0])
 
-        elif input_key == 1:
+        elif input_key == 1 and flag == 0:
             if stage == 1:
                 stage, stage1_index = changeOptions(stage, stage1_index, kinds)
             elif stage == 2:
                 stage, stage2_index = changeOptions(stage, stage2_index, names)
-        elif input_key == 2:
-            stage, stage1_index, stage2_index = doublePress(stage, stage1_index, stage2_index)
 
 
 
