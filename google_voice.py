@@ -27,7 +27,7 @@ def string_to_google(string):
     #print('the url is: ',url)
     p.set_mrl(url)
     p.play()
-    sleep(5)
+    sleep(2)
     return 
 
 # if(__name__ == '__main__'):
