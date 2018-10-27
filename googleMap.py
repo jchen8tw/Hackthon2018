@@ -5,16 +5,14 @@ import time
 
 googleMapKey = sys.argv[1]
 gmaps = googlemaps.Client(key = googleMapKey)
-
 def getData(lat, lng):
-	loc = {'lat': lat, 'lng': lng}
-	query_result = gmaps.places_nearby(keyword = "restaurant",location = loc, radius = 200)
-	result = []
-	for i in query_result['results']:
-		result.append(i['name'])
-	for place in result:
-		print(place)
-	return query_result
+	try:
+		loc = {'lat': lat, 'lng': lng}
+		query_result = gmaps.places_nearby(keyword = "restaurant",location = loc, radius = 1000)
+	except:
+		print("ERROR: getData")
+	else:
+		return query_result
 
 def find_place(place_id):
 	try:
@@ -26,11 +24,11 @@ def find_place(place_id):
 	
 
 if __name__ == '__main__':
-	getData(24.7871229, 120.9967369)['results']
+	results = getData(24.7871229, 120.9967369)
 	datas = []
-	for result in getData(24.7871229, 120.9967369)['results']:
+	for result in results['results']:
 		datas.append({
-			'lan': result['geometry']['location']['lan'],
+			'lat': result['geometry']['location']['lat'],
 			'lng': result['geometry']['location']['lng'],
 			'name': result['name'],
 			'place_id': result['place_id']
