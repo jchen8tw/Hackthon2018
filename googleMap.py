@@ -17,4 +17,15 @@ def getData(lat, lng):
 	
 
 if __name__ == '__main__':
-	print(getData(24.7871229, 120.9967369))
+	getData(24.7871229, 120.9967369)['results']
+	datas = []
+	for result in getData(24.7871229, 120.9967369)['results']:
+		datas.append({
+			'location': result['geometry']['location'],
+			'name': result['name'],
+			'place_id': result['place_id']
+		})
+	for data in datas:
+		print("place data:")
+		print(data)
+
