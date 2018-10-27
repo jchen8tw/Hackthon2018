@@ -2,10 +2,10 @@ def speak(inp):
     print('\tspeak:', inp)
 
 def changeOptions(stage, index, currentList):
-    speak(currentList[index])
     index += 1
     if index == len(currentList):
         index = 0
+    speak(currentList[index])
     return stage, index
 
 def longPress(stage, index):
