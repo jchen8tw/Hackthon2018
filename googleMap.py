@@ -6,8 +6,8 @@ from controller import *
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-channel_1 = 13
-channel_2 = 15
+channel_1 = 27
+channel_2 = 22
 GPIO.setup(channel_1, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(channel_2, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 flag = 0
