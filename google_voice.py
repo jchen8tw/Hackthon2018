@@ -9,9 +9,6 @@ def get_token(string):
     acquirer = TokenAcquirer()
     tk = acquirer.do(string)
     return tk
-def to_utf8(string):
-    stirng = string.encode('utf8')
-    return str(string).replace('\\','%')[2:]
 def is_chinese(string):
     if(string[0] >= u'\u4e00' and string[0]<=u'\u9fa5'):
         return 'zh_CN'
@@ -33,7 +30,6 @@ def string_to_google(string):
     sleep(5)
     return 
 
-if(__name__ == '__main__'):
-    string_to_google(sys.argv[1])
-#    chinese_to_google('幹')
+# if(__name__ == '__main__'):
+    # string_to_google(sys.argv[1])
 
