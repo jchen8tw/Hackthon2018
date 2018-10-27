@@ -1,5 +1,8 @@
+from google_voice import * 
+
 def speak(inp):
     print('\tspeak:', inp)
+    string_to_google(inp)
 
 def changeOptions(stage, index, currentList):
     index += 1
