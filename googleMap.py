@@ -47,6 +47,7 @@ if __name__ == '__main__':
 			flag = 0
 			stage, stage1_index, stage2_index = doublePress(stage, stage1_index, stage2_index)
 			continue
+		print('start wait for edge')
 		GPIO.wait_for_edge(channel_1, GPIO.FALLING)
 		init_time = time.time()
 		GPIO.wait_for_edge(channel_1, GPIO.RISING)
