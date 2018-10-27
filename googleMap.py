@@ -53,6 +53,7 @@ if __name__ == '__main__':
 		current_time = time.time()
 		if init_time - current_time >= 2:
 			input_key = 0
+			print('process start')
 		else:
 			input_key = 1
 		#input_key = int(input('input press: '))
