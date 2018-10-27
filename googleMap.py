@@ -11,23 +11,15 @@ elif len(sys.argv) == 1:
 else:
 	exit(-1)
 gmaps = googlemaps.Client(key = googleMapKey)
+Exceptions = googlemaps.exceptions
 def getData(lat, lng):
 	try:
 		loc = {'lat': lat, 'lng': lng}
-		query_result = gmaps.places_nearby(keyword = "pancake",location = loc, radius = 1000)
-	except (ApiError, TransportError, HTTPError, Timeout):
+		query_result = gmaps.places_nearby(keyword = "building",location = loc, radius = 1000)
+	except (Exceptions.ApiError, Exceptions.TransportError, Exceptions.HTTPError, Exceptions.Timeout):
 		print("ERROR: getData")
 	else:
 		return query_result
-
-def find_place(place_id):
-	try:
-		found_place = gmaps.place(place_id = place_id)
-	except:
-		print("ERROR: find_place")
-	else:
-		return found_place
-	
 
 if __name__ == '__main__':
 	latNlng = [24.7871229, 120.9967369]
@@ -46,4 +38,6 @@ if __name__ == '__main__':
 			'place_id': result['place_id']
 		})
 	correctFront, correctLeft, correctBack, correctRight = findByDirection(degree, latNlng, datas)
+
+
 
