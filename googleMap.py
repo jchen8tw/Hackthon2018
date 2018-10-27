@@ -4,7 +4,12 @@ import pandas as pd
 import time
 from expressData import *
 
-googleMapKey = sys.argv[1]
+if len(sys.argv) == 2:
+	googleMapKey = sys.argv[1]
+elif len(sys.argv) == 1:
+	googleMapKey = "AIzaSyCq6_Zryl4bgEIk_f8NDv7A3-niGGfuKNM"
+else:
+	exit(-1)
 gmaps = googlemaps.Client(key = googleMapKey)
 Exceptions = googlemaps.exceptions
 def getData(lat, lng):
