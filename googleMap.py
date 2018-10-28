@@ -71,7 +71,9 @@ if __name__ == '__main__':
         if input_key == 0 and flag == 0:
             if stage == 0:
                 stage, stage1_index = longPress(stage, stage1_index)
-                latNlng = [24.7871229, 120.9967369]
+# latNlng = [24.7871229, 120.9967369]
+                lat, lng = getGPS()
+                latNlng = [lat, lng]
                 degree = 0
                 speak(kinds[0])
             elif stage == 1:
