@@ -1,4 +1,6 @@
 from google_voice import * 
+import numpy as np
+import math
 
 def speak(inp):
     print('\tspeak:', inp)
