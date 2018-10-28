@@ -76,6 +76,8 @@ if __name__ == '__main__':
                 latNlng = [lat, lng]
                 degree = 0
                 speak(kinds[0])
+                des_lat = 0
+                des_lng = 0
             elif stage == 1:
                 stage, stage2_index = longPress(stage, stage2_index)
                 speak('loading')
@@ -108,12 +110,23 @@ if __name__ == '__main__':
                         names.append(i['name'])
                 speak('finish')
                 speak(names[0])
-
+            elif stage == 2:
+                selectedName = names[stage2_index]
+                selectedData = {}
+                stage, stage2_index = longPress(stage, stage2_index)
+                for data in datas:
+                    if data['name'] == selectedName:
+                        selectedData = data
+                        break
+                    des_lat = selectedData['lat']
+                    des_lng = selectedData['lng']
         elif input_key == 1 and flag == 0:
             if stage == 1:
                 stage, stage1_index = changeOptions(stage, stage1_index, kinds)
             elif stage == 2:
                 stage, stage2_index = changeOptions(stage, stage2_index, names)
+            elif stage == 3:
+                leadMe(degree, latNlng, des_lat, des_lng)
 
 
 
