@@ -75,7 +75,7 @@ if __name__ == '__main__':
 # latNlng = [24.7871229, 120.9967369]
                 lat, lng = getGPS()
                 latNlng = [lat, lng]
-                degree = 0
+                degree = getTheta()
                 speak('machine start')
                 speak(kinds[0])
                 des_lat = 0
@@ -121,6 +121,7 @@ if __name__ == '__main__':
                         des_lat = data['lat']
                         des_lng = data['lat']
                         break
+                speak('destination selected')
         elif input_key == 1 and flag == 0:
             if stage == 1:
                 stage, stage1_index = changeOptions(stage, stage1_index, kinds)
@@ -128,7 +129,7 @@ if __name__ == '__main__':
                 stage, stage2_index = changeOptions(stage, stage2_index, names)
             elif stage == 3:
                 print('leading')
-                leadMe(degree, latNlng, des_lat, des_lng)
+                leadMe(getTheta(), latNlng, des_lat, des_lng)
 
 
 

@@ -33,10 +33,12 @@ def leadMe(degree, latNlng, lat, lng):
     cosTheta = np.dot(orientVector, toDirectVector) / np.sqrt(np.square(orientVector).sum()) * np.sqrt(np.square(toDirectVector).sum())
     cross = np.cross(orientVector, toDirectVector)
     if cosTheta > 0:
+        if cosTheta > 1:
+            cosTheta = 0.99999
         if cross > 0:
-            speak("Turn Left for degree" + str(math.acos(cosTheta)) + "and walk for" + str(sqrt(np.square(toDirectVector).sum())))
+            speak("Turn Left for degree " + str(int(math.acos(cosTheta))) + " and walk for " + str(int(np.sqrt(np.square(toDirectVector).sum()))))
         else:
-            speak("Turn Right for degree" + str(math.acos(cosTheta)) + "and walk for" + str(sqrt(np.square(toDirectVector).sum())))
+            speak("Turn Right for degree " + str(int(math.acos(cosTheta))) + " and walk for " + str(int(np.sqrt(np.square(toDirectVector).sum()))))
     else:
         speak("It is in back of you")
 

@@ -7,7 +7,7 @@ from numpy import sign
 import smbus        #import SMBus module of I2C
 from time import sleep  #import sleep
 import math
-import acceleration as acc
+#import acceleration as acc
 import math
 #some MPU6050 Registers and their Address
 Register_A     = 0              #Address of Configuration register A
@@ -45,7 +45,7 @@ def read_raw_data(addr):
         #print('value: ',value)
         return value
 
-def theta():
+def theta(y, z):
     z_max=140.
     if abs(z)>z_max:zz=(z_max-0.001)*sign(z)
     else:zz=float(z)
@@ -82,6 +82,7 @@ def getTheta():
     x = read_raw_data(X_axis_H)
     z = read_raw_data(Z_axis_H)
     y = read_raw_data(Y_axis_H)
-    return theta()
+    print(theta(y, z))
+    return theta(y, z)
 
 
