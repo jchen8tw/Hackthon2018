@@ -47,6 +47,7 @@ if __name__ == '__main__':
     input_key = -1
     while True:
         if flag == 1:
+        	print('there\'s a flag')
             flag = 0
             stage, stage1_index, stage2_index = doublePress(stage, stage1_index, stage2_index)
             continue
