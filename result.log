@@ -1,0 +1,87 @@
+start wait for edge
+process start
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+270.2165578200088
+	speak: machine start
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=machine%20start&tl=en&total=1&idx=0&textlen=2&tk=352365.255913&client=webapp&prev=input
+	speak: Restaurant
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=Restaurant&tl=en&total=1&idx=0&textlen=1&tk=596514.1023462&client=webapp&prev=input
+start wait for edge
+	speak: building
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=building&tl=en&total=1&idx=0&textlen=1&tk=232519.330627&client=webapp&prev=input
+start wait for edge
+	speak: Pancake
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=Pancake&tl=en&total=1&idx=0&textlen=1&tk=333188.234048&client=webapp&prev=input
+start wait for edge
+process start
+	speak: loading
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=loading&tl=en&total=1&idx=0&textlen=1&tk=36874.399310&client=webapp&prev=input
+	speak: finish
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=finish&tl=en&total=1&idx=0&textlen=1&tk=275202.177350&client=webapp&prev=input
+	speak: Back
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=Back&tl=en&total=1&idx=0&textlen=1&tk=622721.984901&client=webapp&prev=input
+start wait for edge
+	speak: Shine Mood NCTU
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=Shine%20Mood%20NCTU&tl=en&total=1&idx=0&textlen=3&tk=743014.905634&client=webapp&prev=input
+start wait for edge
+process start
+	speak: destination selected
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=destination%20selected&tl=en&total=1&idx=0&textlen=2&tk=480665.119389&client=webapp&prev=input
+start wait for edge
+leading
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+270.2165578200088
+	speak: Turn Left for degree 0 and walk straight
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=Turn%20Left%20for%20degree%200%20and%20walk%20straight&tl=en&total=1&idx=0&textlen=8&tk=178988.277736&client=webapp&prev=input
+start wait for edge
+leading
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+58.99728086612805
+	speak: It is in back of you
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=It%20is%20in%20back%20of%20you&tl=en&total=1&idx=0&textlen=6&tk=361886.197210&client=webapp&prev=input
+start wait for edge
+leading
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+47.97537242062554
+	speak: It is in back of you
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=It%20is%20in%20back%20of%20you&tl=en&total=1&idx=0&textlen=6&tk=361886.197210&client=webapp&prev=input
+start wait for edge
+leading
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+62.339550100700954
+	speak: It is in back of you
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=It%20is%20in%20back%20of%20you&tl=en&total=1&idx=0&textlen=6&tk=361886.197210&client=webapp&prev=input
+start wait for edge
+leading
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+58.211669382950475
+	speak: It is in back of you
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=It%20is%20in%20back%20of%20you&tl=en&total=1&idx=0&textlen=6&tk=361886.197210&client=webapp&prev=input
+start wait for edge
+leading
+['n/a', 'n/a']
+[<class 'str'>, <class 'str'>]
+default return
+Reading Heading Angle
+22.24522169379526
+	speak: It is in back of you
+http://translate.google.com.tw/translate_tts?ie=UTF-8&q=It%20is%20in%20back%20of%20you&tl=en&total=1&idx=0&textlen=6&tk=361886.197210&client=webapp&prev=input
+start wait for edge

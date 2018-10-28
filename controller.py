@@ -30,15 +30,15 @@ def doublePress(stage, index1, index2):
 def leadMe(degree, latNlng, lat, lng):
     toDirectVector = np.array([lng - latNlng[1], lat - latNlng[0]])
     orientVector = np.array([math.cos((90 - degree) * math.pi / 180), math.sin((90 - degree) * math.pi / 180)])
-    cosTheta = np.dot(orientVector, toDirectVector) / np.sqrt(np.square(orientVector).sum()) * np.sqrt(np.square(toDirectVector).sum())
+    cosTheta = np.dot(orientVector, toDirectVector) / np.sqrt(np.square(orientVector).sum()) / np.sqrt(np.square(toDirectVector).sum())
     cross = np.cross(orientVector, toDirectVector)
-    if cosTheta > 0:
-        if cosTheta > 1:
-            cosTheta = 0.99999
-        if cross > 0:
-            speak("Turn Left for degree " + str(int(math.acos(cosTheta))) + " and walk for " + str(int(np.sqrt(np.square(toDirectVector).sum()))))
+    if cosTheta < 0:
+        if cosTheta < -1:
+            cosTheta = -0.99999
+        if cross < 0:
+            speak("Turn Left for degree " + str(int(math.acos(cosTheta)*180/math.pi)) + " and walk straight")
         else:
-            speak("Turn Right for degree " + str(int(math.acos(cosTheta))) + " and walk for " + str(int(np.sqrt(np.square(toDirectVector).sum()))))
+            speak("Turn Right for degree " + str(int(math.acos(cosTheta))*180/math.pi) + " and walk straight")
     else:
         speak("It is in back of you")
 

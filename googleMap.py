@@ -29,7 +29,7 @@ Exceptions = googlemaps.exceptions
 def getData(lat, lng, key):
     try:
         loc = {'lat': lat, 'lng': lng}
-        query_result = gmaps.places_nearby(keyword = key,location = loc, radius = 1000)
+        query_result = gmaps.places_nearby(keyword = key,location = loc, radius = 100)
     except (Exceptions.ApiError, Exceptions.TransportError, Exceptions.HTTPError, Exceptions.Timeout):
         print("ERROR: getData")
     else:
@@ -48,7 +48,7 @@ def functionshutdown(channel):
 
 
 if __name__ == '__main__':
-    kinds = ['Restaurant', 'Building', 'Store', 'Bus stop'] # 0: stop, 1: inKind, 2: option(front, left, back, right)
+    kinds = ['Restaurant', 'building', 'Pancake', 'Bus stop'] # 0: stop, 1: inKind, 2: option(front, left, back, right)
     
     GPIO.add_event_detect(channel_2, GPIO.FALLING, callback = functionshutdown)
     input_key = -1
@@ -129,6 +129,8 @@ if __name__ == '__main__':
                 stage, stage2_index = changeOptions(stage, stage2_index, names)
             elif stage == 3:
                 print('leading')
+                lat, lng = getGPS()
+                latNlng = [lat, lng]
                 leadMe(getTheta(), latNlng, des_lat, des_lng)
 
 
