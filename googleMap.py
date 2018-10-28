@@ -5,6 +5,7 @@ from expressData import *
 from controller import *
 import RPi.GPIO as GPIO
 from gps33 import *
+from direction import *
 
 GPIO.setmode(GPIO.BCM)
 channel_1 = 27
@@ -75,6 +76,7 @@ if __name__ == '__main__':
                 lat, lng = getGPS()
                 latNlng = [lat, lng]
                 degree = 0
+                speak('machine start')
                 speak(kinds[0])
                 des_lat = 0
                 des_lng = 0
@@ -116,16 +118,16 @@ if __name__ == '__main__':
                 stage, stage2_index = longPress(stage, stage2_index)
                 for data in datas:
                     if data['name'] == selectedName:
-                        selectedData = data
+                        des_lat = data['lat']
+                        des_lng = data['lat']
                         break
-                    des_lat = selectedData['lat']
-                    des_lng = selectedData['lng']
         elif input_key == 1 and flag == 0:
             if stage == 1:
                 stage, stage1_index = changeOptions(stage, stage1_index, kinds)
             elif stage == 2:
                 stage, stage2_index = changeOptions(stage, stage2_index, names)
             elif stage == 3:
+                print('leading')
                 leadMe(degree, latNlng, des_lat, des_lng)
 
 

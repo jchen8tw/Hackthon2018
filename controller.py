@@ -14,7 +14,7 @@ def changeOptions(stage, index, currentList):
 def longPress(stage, index):
     stage = stage + 1
     index = 0
-    if stage == 3:
+    if stage == 4:
         stage = 0
     return stage, index
 
