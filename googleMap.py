@@ -80,19 +80,19 @@ if __name__ == '__main__':
                 correctFront, correctLeft, correctBack, correctRight = findByDirection(degree, latNlng, datas)
                 names = []
                 if len(correctFront):
-                	names.append('Front')
+                    names.append('Front')
                     for i in correctFront:
                         names.append(i['name'])                
                 if len(correctRight):
-                	names.append('Right')
+                    names.append('Right')
                     for i in correctRight:
                         names.append(i['name'])                
                 if len(correctLeft):
-                	names.append('Left')
+                    names.append('Left')
                     for i in correctLeft:
                         names.append(i['name'])                
                 if len(correctBack):
-                	names.append('Back')
+                    names.append('Back')
                     for i in correctBack:
                         names.append(i['name'])
                 speak('finish')
